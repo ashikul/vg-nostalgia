@@ -28,7 +28,7 @@ export function isAuthenticated() {
         // Attach user to request
         .use(function (req, res, next) {
             User.findById(req.user._id).exec()
-                .then(user = > {
+                .then(user => {
                 if (
             !user;
             )
@@ -38,10 +38,9 @@ export function isAuthenticated() {
             req.user = user;
             next();
         })
-            .
-            catch(err = > next(err)
+            .catch(err => next(err)
             )
-        });;;
+        });
 }
 
 /**

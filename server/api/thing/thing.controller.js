@@ -25,7 +25,7 @@ function saveUpdates(updates) {
     return function (entity) {
         var updated = _.merge(entity, updates);
         return updated.save()
-                .then(updated = > {
+            .then(updated => {
                 return updated;
     })
     };
@@ -35,7 +35,7 @@ function removeEntity(res) {
     return function (entity) {
         if (entity) {
             return entity.remove()
-                    .then(() = > {
+                .then(() => {
                     res.status(204).end();
         })
         }

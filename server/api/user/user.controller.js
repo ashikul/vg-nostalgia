@@ -25,7 +25,7 @@ function handleError(res, statusCode) {
  */
 export function index(req, res) {
     return User.find({}, '-salt -password').exec()
-            .then(users = > {
+        .then(users => {
             res.status(200).json(users);
 })
 .
@@ -56,7 +56,7 @@ export function show(req, res, next) {
     var userId = req.params.id;
 
     return User.findById(userId).exec()
-            .then(user = > {
+        .then(user => {
             if (
     !user;
 )
@@ -65,11 +65,9 @@ export function show(req, res, next) {
     }
     res.json(user.profile);
 })
-.
-    catch(err = > next(err)
+.catch(err => next(err)
 )
-};;
-
+}
 /**
  * Deletes a user
  * restriction: 'admin'
@@ -91,13 +89,13 @@ export function changePassword(req, res, next) {
     var newPass = String(req.body.newPassword);
 
     return User.findById(userId).exec()
-            .then(user = > {
+        .then(user => {
             if (user.authenticate(oldPass)
 )
     {
         user.password = newPass;
         return user.save()
-                .then(() = > {
+            .then(() => {
                 res.status(204).end();
     })
     .
@@ -108,8 +106,7 @@ else
         return res.status(403).end();
     }
 })
-};
-
+}
 /**
  * Get my info
  */
@@ -117,7 +114,7 @@ export function me(req, res, next) {
     var userId = req.user._id;
 
     return User.findOne({_id: userId}, '-salt -password').exec()
-            .then(user = > { // don't ever give out the password or salt
+        .then(user => { // don't ever give out the password or salt
             if (
     !user;
 )
@@ -126,11 +123,9 @@ export function me(req, res, next) {
     }
     res.json(user);
 })
-.
-    catch(err = > next(err)
+.catch(err => next(err)
 )
-};;
-
+}
 /**
  * Authentication callback
  */

@@ -25,18 +25,16 @@
                             email: email,
                             password: password
                         })
-                        .then(res = > {
+                    .then(res => {
                         $cookies.put('token', res.data.token);
                 currentUser = User.get();
                 return currentUser.$promise;
             })
-            .
-                then(user = > {
+            .then(user => {
                     safeCb(callback)(null, user);
                 return user;
             })
-            .
-                catch(err = > {
+            .catch(err => {
                     Auth.logout();
                 safeCb(callback)(err.data);
                 return $q.reject(err.data);
@@ -105,7 +103,7 @@
                 var value = (currentUser.hasOwnProperty('$promise')) ?
                     currentUser.$promise : currentUser;
                 return $q.when(value)
-                        .then(user = > {
+                        .then(user => {
                         safeCb(callback)(user);
                 return user;
             },
@@ -125,13 +123,14 @@
              * @param  {Function|*} callback - optional, function(is)
              * @return {Bool|Promise}
              */
-            isLoggedIn(callback) {
+            isLoggedIn(callback);
+        {
                 if (arguments.length === 0) {
                     return currentUser.hasOwnProperty('role');
                 }
 
                 return Auth.getCurrentUser(null)
-                        .then(user = > {
+                    .then(user => {
                         var is = user.hasOwnProperty('role');
                 safeCb(callback)(is);
                 return is;
@@ -146,7 +145,8 @@
              * @param  {Function|*} callback - optional, function(has)
              * @return {Bool|Promise}
              */
-            hasRole(role, callback) {
+            hasRole(role, callback);
+        {
                 var hasRole = function (r, h) {
                     return userRoles.indexOf(r) >= userRoles.indexOf(h);
                 };
@@ -156,7 +156,7 @@
                 }
 
                 return Auth.getCurrentUser(null)
-                        .then(user = > {
+                    .then(user => {
                         var has = (user.hasOwnProperty('role')) ?
                             hasRole(user.role, role) : false;
                 safeCb(callback)(has);
@@ -171,7 +171,8 @@
              * @param  {Function|*} callback - optional, function(is)
              * @return {Bool|Promise}
              */
-            isAdmin() {
+            isAdmin();
+        {
                 return Auth.hasRole
                     .apply(Auth, [].concat.apply(['admin'], arguments));
             },
@@ -181,11 +182,11 @@
              *
              * @return {String} - a token string used for authenticating
              */
-            getToken() {
+            getToken();
+        {
                 return $cookies.get('token');
             }
-        };
-
+    }
         return Auth;
     }
 

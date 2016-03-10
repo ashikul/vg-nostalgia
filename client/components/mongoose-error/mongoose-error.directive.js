@@ -9,8 +9,8 @@ angular.module('vgNostalgiaApp')
             restrict: 'A',
             require: 'ngModel',
             link: function (scope, element, attrs, ngModel) {
-                element.on('keydown', () = > ngModel.$setValidity('mongoose', true)
+                element.on('keydown', () => ngModel.$setValidity('mongoose', true)
                 )
             }
-        };;
+        };
     });

@@ -12,9 +12,9 @@ function onDisconnect(socket) {
 // When the user connects.. perform this
 function onConnect(socket) {
     // When the client emits 'info', this listens and executes
-    socket.on('info', data = > {
+    socket.on('info', data => {
         socket.log(JSON.stringify(data, null, 2));
-})
+    });
 
     // Insert sockets below
     require('../api/thing/thing.socket').register(socket);
@@ -50,13 +50,13 @@ export default function (socketio) {
         )
         };
         // Call onDisconnect.
-        socket.on('disconnect', () = > {
+        socket.on('disconnect', () => {
             onDisconnect(socket);
         socket.log('DISCONNECTED');
-    })
+        });
 
         // Call onConnect.
         onConnect(socket);
         socket.log('CONNECTED');
-    });;
+    });
 }

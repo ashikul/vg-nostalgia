@@ -5,7 +5,7 @@ function localAuthenticate(User, email, password, done) {
     User.findOne({
         email: email.toLowerCase()
     }).exec()
-        .then(user = > {
+        .then(user => {
         if (
     !user;
 )
@@ -25,11 +25,9 @@ function localAuthenticate(User, email, password, done) {
         }
     });
 })
-.
-    catch(err = > done(err)
+.catch(err => done(err)
 )
-};;
-
+}
 export function setup(User, config) {
     passport.use(new LocalStrategy({
         usernameField: 'email',

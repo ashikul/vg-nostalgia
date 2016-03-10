@@ -113,12 +113,12 @@ UserSchema
         }
 
         // Make salt with a callback
-        this.makeSalt((saltErr, salt) = > {
+        this.makeSalt((saltErr, salt) => {
             if (saltErr) {
                 next(saltErr);
             }
             this.salt = salt;
-        this.encryptPassword(this.password, (encryptErr, hashedPassword) = > {
+            this.encryptPassword(this.password, (encryptErr, hashedPassword) => {
             if (encryptErr) {
                 next(encryptErr);
             }
@@ -145,7 +145,7 @@ UserSchema.methods = {
             return this.password === this.encryptPassword(password);
         }
 
-        this.encryptPassword(password, (err, pwdGen) = > {
+        this.encryptPassword(password, (err, pwdGen) => {
             if (err) {
                 return callback(err);
             }
@@ -170,7 +170,8 @@ UserSchema.methods = {
      * @return {String}
      * @api public
      */
-    makeSalt(byteSize, callback) {
+    makeSalt(byteSize, callback);
+{
         var defaultByteSize = 16;
 
         if (typeof arguments[0] === 'function') {
@@ -188,7 +189,7 @@ UserSchema.methods = {
             return crypto.randomBytes(byteSize).toString('base64');
         }
 
-        return crypto.randomBytes(byteSize, (err, salt) = > {
+    return crypto.randomBytes(byteSize, (err, salt) => {
                 if (err) {
                     callback(err);
                 } else {
@@ -196,9 +197,9 @@ UserSchema.methods = {
     )
     }
     })
-    };,
-
-    /**
+}
+,
+/**
      * Encrypt password
      *
      * @param {String} password
@@ -206,7 +207,8 @@ UserSchema.methods = {
      * @return {String}
      * @api public
      */
-    encryptPassword(password, callback) {
+encryptPassword(password, callback);
+{
         if (!password || !this.salt) {
             return null;
         }
@@ -220,7 +222,7 @@ UserSchema.methods = {
                 .toString('base64');
         }
 
-        return crypto.pbkdf2(password, salt, defaultIterations, defaultKeyLength, (err, key) = > {
+    return crypto.pbkdf2(password, salt, defaultIterations, defaultKeyLength, (err, key) => {
                 if (err) {
                     callback(err);
                 } else {
@@ -228,7 +230,6 @@ UserSchema.methods = {
     )
     }
     })
-    };
-};
-
+}
+}
 export default mongoose.model('User', UserSchema);

@@ -11,18 +11,18 @@
                 }
 
                 if (typeof next.authenticate === 'string') {
-                    Auth.hasRole(next.authenticate, _.noop).then(has = > {
+                    Auth.hasRole(next.authenticate, _.noop).then(has => {
                         if (has) {
 
                         }
 
                         event.preventDefault();
-                    return Auth.isLoggedIn(_.noop).then(is = > {
+                        return Auth.isLoggedIn(_.noop).then(is => {
                             $state.go(is ? 'main' : 'login');
                 })
                 })
                 } else {
-                    Auth.isLoggedIn(_.noop).then(is = > {
+                    Auth.isLoggedIn(_.noop).then(is => {
                         if (is) {
 
                         }

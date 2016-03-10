@@ -8,7 +8,7 @@ import Thing from '../api/thing/thing.model';
 import User from '../api/user/user.model';
 
 Thing.find({}).remove()
-    .then(() = > {
+    .then(() => {
     Thing.create({
     name: 'Development Tools',
     info: 'Integration with popular tools such as Bower, Grunt, Babel, Karma, ' +
@@ -37,9 +37,9 @@ Thing.find({}).remove()
     info: 'Easily deploy your app to Heroku or Openshift with the heroku ' +
     'and openshift subgenerators'
 });
-})
+    });
 User.find({}).remove()
-    .then(() = > {
+    .then(() => {
     User.create({
         provider: 'local',
         name: 'Test User',
@@ -52,7 +52,7 @@ User.find({}).remove()
         email: 'admin@example.com',
         password: 'admin'
     })
-    .then(() = > {
+        .then(() => {
     console.log('finished populating users');
 })
-})
+    });

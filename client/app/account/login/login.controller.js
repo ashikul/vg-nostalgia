@@ -18,12 +18,11 @@ class LoginController {
                     email: this.user.email,
                     password: this.user.password
                 })
-                .then(() = > {
+                .then(() => {
                 // Logged in, redirect to home
                 this.$state.go('main');
         })
-        .
-            catch(err = > {
+        .catch(err => {
                 this.errors.other = err.message;
         })
         }
