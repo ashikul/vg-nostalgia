@@ -1,6 +1,6 @@
 'use strict';
 
-
+(function () {
 class vgStoriesController {
 
   constructor($http, $scope, socket) {
@@ -32,11 +32,13 @@ class vgStoriesController {
   }
 }
 
+//
 //angular.module('vgNostalgiaApp')
-//  .component('', {
-//    templateUrl: 'app/main/main.html',
-//    controller: MainController
+//  .component('vgStories', {
+//    templateUrl: 'app/vgStories/vgStories.html',
+//    controller: vgStoriesController
 //  });
 
 angular.module('vgNostalgiaApp')
   .controller('vgStoriesController', vgStoriesController);
+})();

@@ -1,7 +1,7 @@
 'use strict';
 
 import mongoose from 'mongoose';
-import {Schema} from 'mongoose';
+//import {Schema} from 'mongoose';
 
 
 var StorySchema = new mongoose.Schema({
