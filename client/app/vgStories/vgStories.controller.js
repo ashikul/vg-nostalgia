@@ -12,7 +12,6 @@ class vgStoriesController {
     //  socket.unsyncUpdates('story');
     //});
   }
-
   $onInit() {
     this.$http.get('/api/stories').then(response => {
       this.awesomeStories = response.data;
