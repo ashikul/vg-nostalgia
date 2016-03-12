@@ -3,37 +3,37 @@
 var app = require('../..');
 import request from 'supertest';
 
-var newThing;
+var newStory;
 
 describe('Story API:', function () {
 
-  describe('GET /api/things', function () {
-    var things;
+  describe('GET /api/storys', function () {
+    var storys;
 
     beforeEach(function (done) {
       request(app)
-        .get('/api/things')
+        .get('/api/storys')
         .expect(200)
         .expect('Content-Type', /json/)
         .end((err, res) => {
           if (err) {
             return done(err);
           }
-          things = res.body;
+          storys = res.body;
           done();
         })
     });
 
     it('should respond with JSON array', function () {
-      things.should.be.instanceOf(Array);
+      storys.should.be.instanceOf(Array);
     });
 
   });
 
-  describe('POST /api/things', function () {
+  describe('POST /api/storys', function () {
     beforeEach(function (done) {
       request(app)
-        .post('/api/things')
+        .post('/api/storys')
         .send({
           name: 'New Story',
           info: 'This is the brand new story!!!'
@@ -44,24 +44,24 @@ describe('Story API:', function () {
           if (err) {
             return done(err);
           }
-          newThing = res.body;
+          newStory = res.body;
           done();
         })
     });
 
     it('should respond with the newly created story', function () {
-      newThing.name.should.equal('New Story');
-      newThing.info.should.equal('This is the brand new story!!!');
+      newStory.name.should.equal('New Story');
+      newStory.info.should.equal('This is the brand new story!!!');
     });
 
   });
 
-  describe('GET /api/things/:id', function () {
+  describe('GET /api/storys/:id', function () {
     var story;
 
     beforeEach(function (done) {
       request(app)
-        .get('/api/things/' + newThing._id)
+        .get('/api/storys/' + newStory._id)
         .expect(200)
         .expect('Content-Type', /json/)
         .end((err, res) => {
@@ -84,12 +84,12 @@ describe('Story API:', function () {
 
   });
 
-  describe('PUT /api/things/:id', function () {
-    var updatedThing;
+  describe('PUT /api/storys/:id', function () {
+    var updatedStory;
 
     beforeEach(function (done) {
       request(app)
-        .put('/api/things/' + newThing._id)
+        .put('/api/storys/' + newStory._id)
         .send({
           name: 'Updated Story',
           info: 'This is the updated story!!!'
@@ -100,27 +100,27 @@ describe('Story API:', function () {
           if (err) {
             return done(err);
           }
-          updatedThing = res.body;
+          updatedStory = res.body;
           done();
         });
     });
 
     afterEach(function () {
-      updatedThing = {};
+      updatedStory = {};
     });
 
     it('should respond with the updated story', function () {
-      updatedThing.name.should.equal('Updated Story');
-      updatedThing.info.should.equal('This is the updated story!!!');
+      updatedStory.name.should.equal('Updated Story');
+      updatedStory.info.should.equal('This is the updated story!!!');
     });
 
   });
 
-  describe('DELETE /api/things/:id', function () {
+  describe('DELETE /api/storys/:id', function () {
 
     it('should respond with 204 on successful removal', function (done) {
       request(app)
-        .delete('/api/things/' + newThing._id)
+        .delete('/api/storys/' + newStory._id)
         .expect(204)
         .end((err, res) => {
           if (err) {
@@ -132,7 +132,7 @@ describe('Story API:', function () {
 
     it('should respond with 404 when story does not exist', function (done) {
       request(app)
-        .delete('/api/things/' + newThing._id)
+        .delete('/api/storys/' + newStory._id)
         .expect(404)
         .end((err, res) => {
           if (err) {

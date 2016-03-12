@@ -4,7 +4,7 @@
 
 'use strict';
 
-var ThingEvents = require('./story.events');
+var StoryEvents = require('./story.events');
 
 // Model events to emit
 var events = ['save', 'remove'];
@@ -15,7 +15,7 @@ export function register(socket) {
     var event = events[i];
     var listener = createListener('story:' + event, socket);
 
-    ThingEvents.on(event, listener);
+    StoryEvents.on(event, listener);
     socket.on('disconnect', removeListener(event, listener));
   }
 }
@@ -29,6 +29,6 @@ function createListener(event, socket) {
 
 function removeListener(event, listener) {
   return function () {
-    ThingEvents.removeListener(event, listener);
+    StoryEvents.removeListener(event, listener);
   };
 }

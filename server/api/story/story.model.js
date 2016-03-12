@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 import {Schema} from 'mongoose';
 
 
-var ThingSchema = new mongoose.Schema({
+var StorySchema = new mongoose.Schema({
   created: {
     type: Date,
     default: Date.now
@@ -21,8 +21,11 @@ var ThingSchema = new mongoose.Schema({
     trim: true
   },
   creator: {
-    type: Schema.ObjectId,
-    ref: 'user'
+    //FIXME reference user object instead of string
+    //type: Schema.ObjectId,
+    //ref: 'user'
+    type: String,
+    default: '',
   },
   game: {
     type: String,
@@ -30,4 +33,4 @@ var ThingSchema = new mongoose.Schema({
   }
 });
 
-export default mongoose.model('Story', ThingSchema);
+export default mongoose.model('Story', StorySchema);

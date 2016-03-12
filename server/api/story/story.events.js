@@ -6,10 +6,10 @@
 
 import {EventEmitter} from 'events';
 var Story = require('./story.model');
-var ThingEvents = new EventEmitter();
+var StoryEvents = new EventEmitter();
 
 // Set max event listeners (0 == unlimited)
-ThingEvents.setMaxListeners(0);
+StoryEvents.setMaxListeners(0);
 
 // Model events
 var events = {
@@ -25,9 +25,9 @@ for (var e in events) {
 
 function emitEvent(event) {
   return function (doc) {
-    ThingEvents.emit(event + ':' + doc._id, doc);
-    ThingEvents.emit(event, doc);
+    StoryEvents.emit(event + ':' + doc._id, doc);
+    StoryEvents.emit(event, doc);
   }
 }
 
-export default ThingEvents;
+export default StoryEvents;
