@@ -160,7 +160,7 @@ UserSchema.methods = {
             callback(null, false);
         }
     })
-    };,
+    },
 
     /**
      * Make salt
@@ -170,7 +170,7 @@ UserSchema.methods = {
      * @return {String}
      * @api public
      */
-    makeSalt(byteSize, callback);
+    makeSalt(byteSize, callback)
 {
         var defaultByteSize = 16;
 
@@ -197,8 +197,8 @@ UserSchema.methods = {
     )
     }
     })
-}
-,
+},
+
 /**
      * Encrypt password
      *
@@ -207,7 +207,7 @@ UserSchema.methods = {
      * @return {String}
      * @api public
      */
-encryptPassword(password, callback);
+encryptPassword(password, callback)
 {
         if (!password || !this.salt) {
             return null;
@@ -231,5 +231,5 @@ encryptPassword(password, callback);
     }
     })
 }
-}
+};
 export default mongoose.model('User', UserSchema);

@@ -58,7 +58,7 @@ export function show(req, res, next) {
     return User.findById(userId).exec()
         .then(user => {
             if (
-    !user;
+              !user
 )
     {
         return res.status(404).end();
@@ -116,7 +116,7 @@ export function me(req, res, next) {
     return User.findOne({_id: userId}, '-salt -password').exec()
         .then(user => { // don't ever give out the password or salt
             if (
-    !user;
+              !user
 )
     {
         return res.status(401).end();
