@@ -67,6 +67,27 @@ Story.find({}).remove()
         'I was also listening to Linken Park on youtube repeat. Good times.',
         creator: 'Ashikul',
         game: 'World of Warcraft'
+      }, {
+        title: 'Smashing noobs to 130',
+        content: 'I distinctly remember getting a pentakill with Katarina when my account ' +
+        'was level 25ish. My mom also brought a blue coolatta from Dunkin Donuts. ' +
+        'I was also listening to Katy Perry, E.T. on youtube repeat. Good times.',
+        creator: 'Ashikul2',
+        game: 'League of Legends'
+      }, {
+        title: 'Smashing noobs to 301',
+        content: 'I distinctly remember getting a pentakill with Katarina when my account ' +
+        'was level 5ish. My mom also brought a blue coolatta from Dunkin Donuts. ' +
+        'I was also listening to Katy Perry, E.T. on youtube repeat. Good times.',
+        creator: 'Ashikul3',
+        game: 'League of Legends'
+      }, {
+        title: 'Smashing noobs to 230',
+        content: 'I distinctly remember getting a pentakill with Katarina when my account ' +
+        'was level 65ish. My mom also brought a blue coolatta from Dunkin Donuts. ' +
+        'I was also listening to Katy Perry, E.T. on youtube repeat. Good times.',
+        creator: 'Ashikul4',
+        game: 'League of Legends'
       }
     );
   });

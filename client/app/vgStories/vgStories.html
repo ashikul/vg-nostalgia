@@ -1,19 +1,25 @@
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header">vgStories</h1>
+<div>
+    <div class="" id="wrapper">
+        <h1 class="page-header">vgStories</h1>
+        <div class="" id="columns">
             <ul class="" ng-repeat="story in $ctrl.awesomeStories">
-                <!--<li><a href="#" uib-tooltip="{{story.info}}">{{story.name}}-->
-                <!--<button type="button" class="close" ng-click="$ctrl.deleteStory(story)">&times;</button>-->
-                <!--</a></li>-->
-                <li>
-                <p>{{story.title}}</p>
-                <p>{{story.content}}</p>
-                <p>{{story.creator}}</p>
-                <p>{{story.game}}</p>
+                <li class="panel panel-primary">
+                    <div class="panel-body">
+                        <!--FIXME-->
+                        <div class="">
+                            <h5>{{story.title}}</h5>
+                            <h6>{{story.game}}</h6>
+                            <p> {{story.content}}</p>
+                            <h6>{{story.creator}}</h6>
+                        </div>
+                    </div>
                 </li>
             </ul>
-            <p>Hello End</p>
+        </div>
+        <!--<p>Hello End</p>-->
+        <!--<p>vgMusic.message</p>-->
+        <!--<p>{{$ctrl.message}}</p>-->
+        <!--<p>{{$ctrl.awesomeSongs}}</p>-->
 
         </div>
     </div>
