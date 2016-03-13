@@ -2,17 +2,31 @@
     <div class="container row">
         <div class="col-lg-12">
             <h1 class="page-header">vgMusic</h1>
-            <ul class="" ng-repeat="story in $ctrl.awesomeSongs">
-                <li>
-                    <p>{{story.name}}</p>
-                    <p>{{story.likes}}</p>
-                    <p>{{story.game}}</p>
-                </li>
-            </ul>
-            <p>Hello End</p>
-            <p>vgMusic.message</p>
+            <div class="" ng-repeat="story in $ctrl.awesomeSongs">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+
+                        <div class='row'>
+                            <div class='col-xs-4'>
+                                {{story.name}}
+                            </div>
+                            <div class='col-xs-3'>
+                                {{story.game}}
+                            </div>
+                            <div class='col-xs-2'>
+                                Likes: {{story.likes}}
+                            </div>
+                            <div class='col-xs-3'>
+                                Button!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--<p>Hello End</p>-->
+            <!--<p>vgMusic.message</p>-->
             <p>{{$ctrl.message}}</p>
-            <p>{{$ctrl.awesomeSongs}}</p>
+            <!--<p>{{$ctrl.awesomeSongs}}</p>-->
 
         </div>
     </div>
