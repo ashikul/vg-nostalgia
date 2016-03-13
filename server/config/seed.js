@@ -9,7 +9,7 @@ import User from '../api/user/user.model';
 import Story from '../api/story/story.model';
 import Song from '../api/song/song.model';
 
-
+//FIXME seperate into smaller files
 Song.find({}).remove()
   .then(() => {
     Song.create({
