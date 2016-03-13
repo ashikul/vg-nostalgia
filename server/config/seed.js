@@ -7,6 +7,38 @@
 import Thing from '../api/thing/thing.model';
 import User from '../api/user/user.model';
 import Story from '../api/story/story.model';
+import Song from '../api/song/song.model';
+
+
+Song.find({}).remove()
+  .then(() => {
+    Song.create({
+        game: 'The War of the Lions',
+        name: 'Chapel',
+        likes: 2
+      }, {
+        game: 'XCOM',
+        name: 'Main Theme',
+        likes: 4
+      }, {
+        game: 'Baten Kaitos',
+        name: 'The True Mirror',
+        likes: 1
+      }, {
+        game: 'League of Legends',
+        name: 'Ranked Theme',
+        likes: 6
+      }, {
+        game: 'Pokemon',
+        name: 'Gym Leader Theme',
+        likes: 9
+      }, {
+        game: 'Legend of Zelda',
+        name: 'Song of Storms',
+        likes: 10
+      }
+    );
+  });
 
 
 Story.find({}).remove()
