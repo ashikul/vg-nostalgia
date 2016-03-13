@@ -2,9 +2,15 @@
 (function () {
 
   class VgMusicComponent {
-    constructor($http) {
+    constructor($http, $scope, socket) {
       this.message = 'Hello';
       this.$http = $http;
+      this.socket = socket;
+      this.awesomeSongs = [];
+
+      //$scope.$on('$destroy', function () {
+      //  socket.unsyncUpdates('story');
+      //});
     }
 
     $onInit() {

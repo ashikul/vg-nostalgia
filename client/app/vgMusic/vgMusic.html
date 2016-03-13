@@ -1,8 +1,8 @@
-<div class="container">
-    <div class="row">
+<div>
+    <div class="container row">
         <div class="col-lg-12">
             <h1 class="page-header">vgMusic</h1>
-            <ul class="" ng-repeat="story in awesomeSongs">
+            <ul class="" ng-repeat="story in $ctrl.awesomeSongs">
                 <li>
                     <p>{{story.name}}</p>
                     <p>{{story.likes}}</p>
@@ -10,6 +10,9 @@
                 </li>
             </ul>
             <p>Hello End</p>
+            <p>vgMusic.message</p>
+            <p>{{$ctrl.message}}</p>
+            <p>{{$ctrl.awesomeSongs}}</p>
 
         </div>
     </div>

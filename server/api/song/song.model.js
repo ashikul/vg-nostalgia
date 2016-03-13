@@ -9,7 +9,7 @@ var SongSchema = new mongoose.Schema({
     default: '',
   },
   likes: {
-    type: Double,
+    type: Number,
     default: 0
   }
 });
